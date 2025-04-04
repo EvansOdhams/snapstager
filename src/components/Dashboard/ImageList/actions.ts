@@ -6,7 +6,7 @@ import { prismaClient } from "src/services";
 export const getAllImages = async (
   userId: string,
   minId: number | null,
-  limit: number = 10,
+  limit: number = 10
 ) => {
   try {
     const payload = {

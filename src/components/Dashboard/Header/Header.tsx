@@ -92,7 +92,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                         href={item.href}
                         className={classNames(
                           active ? "bg-gray-50" : "",
-                          "block px-3 py-1 text-sm leading-6 text-gray-900",
+                          "block px-3 py-1 text-sm leading-6 text-gray-900"
                         )}
                       >
                         {item.name}

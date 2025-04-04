@@ -57,7 +57,7 @@ export default function DropDown({ theme, setTheme, themes }: DropDownProps) {
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       themeItem === theme ? "bg-gray-200" : "",
-                      "flex w-full items-center justify-between space-x-2 px-4 py-2 text-left text-sm",
+                      "flex w-full items-center justify-between space-x-2 px-4 py-2 text-left text-sm"
                     )}
                   >
                     <span>{themeItem}</span>

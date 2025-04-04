@@ -15,7 +15,7 @@ export const PricingTable = () => {
   const user = useUserSession();
   return user !== null ? (
     <>
-      <div className="mt-4 mb-8 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mb-0">
+      <div className="mb-8 mt-4 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mb-0">
         <h1 className="font-display mx-auto mb-5 max-w-4xl text-4xl font-bold tracking-normal md:text-6xl">
           Buy credits to use SnapStager
         </h1>

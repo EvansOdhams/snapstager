@@ -69,7 +69,7 @@ export const UploadDropZone: FunctionComponent<UploadDropzoneProps> = ({
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        <div className="pointer-events-none flex flex-col items-center justify-center pt-5 pb-6">
+        <div className="pointer-events-none flex flex-col items-center justify-center pb-6 pt-5">
           <svg
             className="mb-3 h-10 w-10 text-gray-400"
             fill="none"

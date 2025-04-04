@@ -38,7 +38,7 @@ interface Result {
   messages: Array<string>;
 }
 export const uploadImage = async (
-  formData: FormData,
+  formData: FormData
 ): Promise<Result | undefined> => {
   try {
     const response = await fetch(
@@ -49,7 +49,7 @@ export const uploadImage = async (
           Authorization: `Bearer ${api.CLOUDFLARE_TOKEN}`,
         },
         body: formData,
-      },
+      }
     );
     const result: Result = await response.json();
     if (result.success) {
@@ -68,7 +68,7 @@ export const updateImageDb = async (
   imageUrl: string,
   userId: string,
   type: ImageType,
-  relatedImageId?: number,
+  relatedImageId?: number
 ) => {
   try {
     const payload = {

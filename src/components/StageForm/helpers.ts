@@ -1,7 +1,7 @@
 export const exportMask = (
   canvasRef: HTMLCanvasElement,
   originalWidth: number,
-  originalHeight: number,
+  originalHeight: number
 ): string => {
   // Create a new canvas element
   const exportCanvas = document.createElement("canvas");
@@ -63,7 +63,7 @@ getImageDimensions(imageUrl)
   });
  */
 export const getImageDimensions = (
-  url: string,
+  url: string
 ): Promise<{ width: number; height: number }> => {
   return new Promise((resolve, reject) => {
     const img = new Image();

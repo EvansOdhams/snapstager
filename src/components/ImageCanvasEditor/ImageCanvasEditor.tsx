@@ -38,7 +38,7 @@ export const ImageCanvasEditor = forwardRef<
     clear = 0,
     enabled = true,
   },
-  ref,
+  ref
 ) {
   const [dimensions, setDimensions] = useState({
     width: 1280,
@@ -63,7 +63,7 @@ export const ImageCanvasEditor = forwardRef<
       enabled: true,
       radius: lazyRadius,
       initialPoint: { x: mouseX.current, y: mouseY.current },
-    }),
+    })
   ).current;
 
   function midPointBtw(p1: Point, p2: Point) {
@@ -86,13 +86,13 @@ export const ImageCanvasEditor = forwardRef<
         canvasDrawingRef.current,
         dimensions.width,
         dimensions.height,
-        DRAW_MAX_DPI,
+        DRAW_MAX_DPI
       );
       setCanvasSize(
         canvasTempRef.current,
         dimensions.width,
         dimensions.height,
-        DRAW_MAX_DPI,
+        DRAW_MAX_DPI
       );
       // Set temp canvas to transparent, so naturally the canvasDrawing will be transparent later as well
       const canvas = canvasTempRef.current;
@@ -105,7 +105,7 @@ export const ImageCanvasEditor = forwardRef<
         canvasInterfaceRef.current,
         dimensions.width,
         dimensions.height,
-        3,
+        3
       );
     }
   }, [containerRef.current, dimensions.width, dimensions.height]);
@@ -223,13 +223,13 @@ export const ImageCanvasEditor = forwardRef<
       0,
       0,
       dimensions.width * dimensions.dpi,
-      dimensions.height * dimensions.dpi,
+      dimensions.height * dimensions.dpi
     );
     canvasTemp?.clearRect(
       0,
       0,
       dimensions.width * dimensions.dpi,
-      dimensions.height * dimensions.dpi,
+      dimensions.height * dimensions.dpi
     );
   };
 
@@ -238,7 +238,7 @@ export const ImageCanvasEditor = forwardRef<
     width: number,
     height: number,
     maxDpi: number,
-    forceDpi = null,
+    forceDpi = null
   ) => {
     const targetDpi = forceDpi || Math.min(dimensions.dpi, maxDpi);
     canvas.width = width * targetDpi;
@@ -291,7 +291,7 @@ export const ImageCanvasEditor = forwardRef<
       const result = getCatenaryCurve(
         brush,
         { x: mouseX.current, y: mouseY.current },
-        lazyRadius,
+        lazyRadius
       );
       drawResult(result, ctx);
       ctx.stroke();
@@ -307,7 +307,7 @@ export const ImageCanvasEditor = forwardRef<
   const updateLazyBrush = () => {
     lazy.update(
       { x: mouseX.current, y: mouseY.current },
-      { friction: isDrawing ? friction / 100 : 1 },
+      { friction: isDrawing ? friction / 100 : 1 }
     );
 
     const isDisabled = !lazy.isEnabled();

@@ -19,8 +19,8 @@ const schema = yup.object<Record<keyof FormValues, yup.AnySchema>>().shape({
           .string()
           .matches(
             /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character",
-          ),
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+          )
   ),
   confirmPassword: yup
     .string()
@@ -75,7 +75,7 @@ export const Profile: FunctionComponent = () => {
               });
             } catch (e) {
               console.log(
-                "Something went wrong when updating user profile on client",
+                "Something went wrong when updating user profile on client"
               );
               notifications.show({
                 title: "Bummer",

@@ -8,7 +8,7 @@ import { getAllImages } from "./actions";
 export const ImageList: FunctionComponent = () => {
   const [lastId, setLastId] = useState<number | null>(null);
   const [images, setImages] = useState<{ id: number; url: string }[] | null>(
-    [],
+    []
   );
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

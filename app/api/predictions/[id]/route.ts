@@ -33,7 +33,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
           Authorization: `Token ${api.REPLICATE_API_KEY}`,
           "Content-Type": "application/json",
         },
-      },
+      }
     );
     const result: Prediction = await response.json();
     if (response.status !== 200 || result.status === "failed") {
@@ -44,7 +44,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
   } catch (e) {
     return NextResponse.json(
       { message: "Failed to get prediction" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

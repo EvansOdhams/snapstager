@@ -52,7 +52,7 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
       isCanvasBlank(canvasDrawingRef.current)
     ) {
       setError(
-        "Please mask the room before submitting. Draw the mask with your mouse for the part where you want the furniture to be displayed.",
+        "Please mask the room before submitting. Draw the mask with your mouse for the part where you want the furniture to be displayed."
       );
       return;
     }
@@ -72,7 +72,7 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
           const updateImageStatus = await updateImageDb(
             resultOriginalVariant,
             user.id,
-            ImageType.ORIGINAL,
+            ImageType.ORIGINAL
           );
 
           const maskedPhotoUrl = await generateMaskedPhoto(originalPhoto);
@@ -81,14 +81,14 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
             const maskedPhotoFile = new File(
               [maskedPhotoBlob],
               `${photoName}-mask.png`,
-              { type: "image/png" },
+              { type: "image/png" }
             );
             const formDataMasked = new FormData();
             formDataMasked.append("file", maskedPhotoFile);
             const resultMasked = await uploadImage(formDataMasked);
             const resultMaskedOriginalVariant =
               resultMasked?.result?.variants.find((variant) =>
-                regex.test(variant),
+                regex.test(variant)
               ) ?? "";
 
             if (resultMasked?.success && updateImageStatus !== undefined) {
@@ -96,13 +96,13 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
                 resultMaskedOriginalVariant,
                 user.id,
                 ImageType.MASK,
-                updateImageStatus?.id,
+                updateImageStatus?.id
               );
             }
             if (result !== undefined && resultMasked !== undefined) {
               const generatePhotoResult = await generatePhoto(
                 resultOriginalVariant,
-                resultMaskedOriginalVariant,
+                resultMaskedOriginalVariant
               );
               if (generatePhotoResult !== undefined) {
                 const generatedPhotoBlob =
@@ -112,19 +112,19 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
                 formDataFinal.append(
                   "file",
                   generatedPhotoBlob,
-                  `${photoName}-final.jpg`,
+                  `${photoName}-final.jpg`
                 );
                 const resultFinal = await uploadImage(formDataFinal);
                 const resultFinalOriginalVariant =
                   resultFinal?.result?.variants.find((variant) =>
-                    regex.test(variant),
+                    regex.test(variant)
                   ) ?? "";
 
                 await updateImageDb(
                   resultFinalOriginalVariant,
                   user.id,
                   ImageType.FINAL,
-                  updateImageStatus?.id,
+                  updateImageStatus?.id
                 );
                 await reduceUserCredit(user.id);
                 setUserProfile({
@@ -157,7 +157,7 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
         const image = exportMask(
           canvasDrawingRef.current,
           imageDimension.width,
-          imageDimension.height,
+          imageDimension.height
         );
         return image;
       } catch (e) {
@@ -216,7 +216,7 @@ export const StageForm: FunctionComponent<{ user: User }> = ({ user }) => {
         throw new Error("Error at the predictions");
       }
     },
-    [room, theme],
+    [room, theme]
   );
 
   return (

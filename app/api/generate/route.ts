@@ -40,14 +40,14 @@ export async function POST(request: Request): Promise<NextResponse | Response> {
             prompt: `a ${theme.toLowerCase()} ${room.toLowerCase()}`,
           },
         }),
-      },
+      }
     );
 
     const jsonStartResponse: Prediction = await startResponse.json();
     if (startResponse.status !== 201) {
       return NextResponse.json(
         { message: jsonStartResponse.error },
-        { status: 500 },
+        { status: 500 }
       );
     }
     return NextResponse.json(jsonStartResponse, { status: 201 });
@@ -58,7 +58,7 @@ export async function POST(request: Request): Promise<NextResponse | Response> {
       },
       {
         status: 400,
-      },
+      }
     );
   }
 }

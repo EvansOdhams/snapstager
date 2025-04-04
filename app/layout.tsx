@@ -6,6 +6,8 @@ import "@mantine/notifications/styles.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { theme } from "src/styles/theme";
 import { Notifications } from "@mantine/notifications";
+import { Header } from "src/components/Header/Header";
+import { Footer } from "src/components/Footer/Footer";
 
 const title = "Virtual Staging using AI";
 const description =
@@ -48,9 +50,11 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className="h-full">
+      <body className="flex min-h-screen flex-col">
         <MantineProvider theme={theme}>
-          {children}
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
           <Notifications position="bottom-right" />
         </MantineProvider>
         <Analytics />

@@ -8,7 +8,7 @@ export type GetProfileReturn = {
   lastName: string | null;
 };
 export const getProfile = async (
-  userId: string,
+  userId: string
 ): Promise<GetProfileReturn | null> => {
   try {
     const result = await prismaClient.profile.findFirst({
